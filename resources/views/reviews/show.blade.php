@@ -7,7 +7,7 @@
     <br>
     <br>
         <h1>{{$review->title}}</h1>
-        <img style="width:100%" src="/storage/cover_images/{{$review->cover_img}}">
+        <img style="width:50%;height:50%" src="/storage/cover_images/{{$review->cover_img}}">
         <br><br>
         <div>
             {!!$review->body!!}
