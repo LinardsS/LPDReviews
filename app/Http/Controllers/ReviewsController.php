@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Intervention\Image\ImageManager as Image;
 use Illuminate\Support\Facades\Storage;
 use App\Review;
 use DB;
