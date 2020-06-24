@@ -162,9 +162,6 @@ class ReviewsController extends Controller
         if($request->hasFile('cover_img')) {
             $review->cover_img = $filenameToStore;
         }
-        else {
-            $review->cover_img='noimage.jpg';
-        }
         if ($request->hasFile('cover_img')) {
             Storage::delete('public/cover_images/' . $review->cover_image);
             $review->cover_img = $filenameToStore;
