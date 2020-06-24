@@ -24,6 +24,9 @@ use Illuminate\Support\Facades\Route;
     Route::resource('reviews', 'ReviewsController');
     Auth::routes();
 
+    //Categories
+    Route::resource('categories', 'CategoriesController', ['except' => ['create']]);
+
     Route::get('/home', 'HomeController@index')->name('home');
     //Comments
     Route::post('comments/{review_id}', ['uses'=>'CommentsController@store', 'as'=>'comments.store']);

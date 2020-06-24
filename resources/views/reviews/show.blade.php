@@ -13,6 +13,8 @@
             {!!$review->body!!}
         </div>
         <hr>
+        @if($review->category['name']!= null) <p>Posted in:  {{$review->category['name']}}</p>
+        @endif
         <small>Written on {{$review->created_at}} by {{$review->user->name}}</small>
         <hr>
         @if(Auth::user()==$review->user)

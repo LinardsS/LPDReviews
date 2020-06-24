@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Intervention\Image\ImageManager as Image;
 use Illuminate\Support\Facades\Storage;
 use App\Review;
+use App\Category;
 use DB;
 
 class ReviewsController extends Controller
@@ -41,7 +42,8 @@ class ReviewsController extends Controller
      */
     public function create()
     {
-        return view('reviews.create');
+        $categories = Category::all();
+        return view('reviews.create')->with('categories',$categories);
     }
 
     /**
@@ -55,7 +57,8 @@ class ReviewsController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'body' => 'required',
-            'cover_img' => 'image|nullable|max:1999'
+            'cover_img' => 'image|nullable|max:1999',
+            'category_id' => 'required|integer'
         ]);
 
         //Handle file upload
@@ -80,6 +83,7 @@ class ReviewsController extends Controller
         $review->body = $request->input('body');
         $review->user_id = auth()->user()->id;
         $review->cover_img = $filenameToStore;
+        $review->category_id =$request->input('category_id');
         $review->save();
 
         return redirect('/reviews')->with('success', 'Review Created');
@@ -110,8 +114,12 @@ class ReviewsController extends Controller
         if(auth()->user()->id !==$review->user_id){
             return redirect('/reviews')->with('error','Unauthorized user');
         }
-
-        return view('reviews.edit')->with('review',$review);
+        $categories = Category::all();
+        $cats = array();
+        foreach ($categories as $category){
+            $cats[$category->id] = $category->name;
+        }
+        return view('reviews.edit')->with('review',$review)->with('categories',$cats);
     }
 
     /**
@@ -126,7 +134,8 @@ class ReviewsController extends Controller
         $this->validate($request,[
             'title' => 'required',
             'body' => 'required',
-            'cover_img' => 'image|nullable|max:1999'
+            'cover_img' => 'image|nullable|max:1999',
+            'category_id' => 'required|integer'
         ]);
 
         //Handle file upload
@@ -160,6 +169,8 @@ class ReviewsController extends Controller
             Storage::delete('public/cover_images/' . $review->cover_image);
             $review->cover_img = $filenameToStore;
         }
+        $review->category_id=$request->input('category_id');
+
         $review->save();
 
         return redirect('/reviews')->with('success', 'Review Edited');

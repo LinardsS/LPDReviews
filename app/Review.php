@@ -14,4 +14,7 @@ class Review extends Model
     public function comments() {
         return $this->hasMany('App\Comment');
     }
+    public function category() {
+        return $this->belongsTo('App\Category');
+    }
 }
