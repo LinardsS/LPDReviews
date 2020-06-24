@@ -37,7 +37,8 @@ return [
     'body' => 'Teksts',
     'submit' => 'Publicēt',
     'admin' => 'Administrators',
-    'adminPage' => 'Administratora lapa'
+    'adminPage' => 'Administratora lapa',
+    'user' => 'Lietotājs'
 ];
 
 

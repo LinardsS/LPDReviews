@@ -32,10 +32,13 @@ use Illuminate\Support\Facades\Route;
     Route::post('comments/{review_id}', ['uses'=>'CommentsController@store', 'as'=>'comments.store']);
 
     //Admin role
-    // Route::get('/admin', [
-    //   'middleware'=>'roles',
-    //   'roles' => ['Admin']
-    // ]);
+    Route::group(['middleware' => ['auth']], function () {
+      Route::get('/user', 'DemoController@userDemo')->name('user');
+      
+      Route::group(['middleware' => ['admin']], function () {
+        Route::get('/admin', 'PagesController@admin')->name('admin');
+      });
+    });
     //Locales
     Route::get('setlocale/{locale}', function ($locale) {
         if (in_array($locale, \Config::get('app.locales'))) {

@@ -49,7 +49,10 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/reviews">{{__('text.Reviews')}}</a>
                 </li>
-                
+                @if(!Auth::guest() && Auth::user()->hasRole('admin'))<li class="nav-item">
+                    <a class="nav-link" href="/admin">{{__('text.admin')}}</a>
+                </li>
+                @endif
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">

@@ -40,4 +40,14 @@ class User extends Authenticatable
     public function reviews() {
         return $this->hasMany('App\Review');
     }
+    public function roles() {
+        return $this->belongsToMany('App\Role');
+    }
+    public function hasRole($role){
+        $roles =$this->roles()->where('name',$role)->count();
+        if($roles==1){
+            return true;
+        }
+        return false;
+    }
 }
