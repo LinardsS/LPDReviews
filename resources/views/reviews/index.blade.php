@@ -3,7 +3,7 @@
 @section('content')
     <br>
     <div class="container">
-        <h1>Reviews</h1>
+        <h1>{{__('text.Reviews')}}</h1>
         @if(count($reviews)>0)
             @foreach($reviews as $review)
             <div class="card p-3 mt-3 mb-3">
@@ -13,7 +13,7 @@
                     </div>
                     <div class = "col-md-8 col-sm-8">
                         <h3><a href="/reviews/{{$review->id}}">{{$review->title}}</a></h3>
-                        <small>Written on {{$review->created_at}} by {{$review->user->name}}</small>
+                        <small>{{__('text.writtenOn')}} {{$review->created_at}} by {{$review->user->name}}</small>
                     </div>
                 </div>
            

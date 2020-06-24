@@ -8,7 +8,6 @@ class PagesController extends Controller
 {
     public function index(){
         $title = 'Welcome to LPDReviews!';
-        App::setLocale('en');
         return view('pages.index', compact('title'));
     }
     public function about() {

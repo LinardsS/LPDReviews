@@ -30,4 +30,12 @@ use Illuminate\Support\Facades\Route;
     Route::get('/home', 'HomeController@index')->name('home');
     //Comments
     Route::post('comments/{review_id}', ['uses'=>'CommentsController@store', 'as'=>'comments.store']);
+
+    //Locales
+    Route::get('setlocale/{locale}', function ($locale) {
+        if (in_array($locale, \Config::get('app.locales'))) {
+          session(['locale' => $locale]);
+        }
+        return redirect()->back();
+      });
 // });

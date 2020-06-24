@@ -3,7 +3,7 @@
 @section('content')
 <br>
 <br>
-    <a href="/reviews" class="btn btn-outline-primary">Back</a>
+    <a href="/reviews" class="btn btn-outline-primary">{{__('text.back')}}</a>
     <br>
     <br>
         <h1>{{$review->title}}</h1>
@@ -13,9 +13,9 @@
             {!!$review->body!!}
         </div>
         <hr>
-        @if($review->category['name']!= null) <p>Posted in:  {{$review->category['name']}}</p>
+        @if($review->category['name']!= null) <p>{{__('text.category')}}  {{$review->category['name']}}</p>
         @endif
-        <small>Written on {{$review->created_at}} by {{$review->user->name}}</small>
+        <small>{{__('text.writtenOn')}} {{$review->created_at}} by {{$review->user->name}}</small>
         <hr>
         @if(Auth::user()==$review->user)
         <a href="/reviews/{{$review->id}}/edit" class="btn btn-secondary"> Edit </a>

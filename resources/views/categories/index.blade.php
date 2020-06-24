@@ -3,12 +3,12 @@
 @section('content')
     <div class="row">
         <div class="col-md-8">
-            <h1>Categories</h1>
+            <h1>{{__('text.categories')}}</h1>
             <table class="table">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>
+                        <th>{{__('text.title')}}</th>
                     </tr>
                 </thead>
 
@@ -26,11 +26,11 @@
         <div class="col-md-3">
             <div class="card card-body bg-light">
                 {!!Form::open(['route' =>'categories.store', 'method' =>'POST'])!!}
-                <h2>New Category</h2>  
-                {{Form::label('name', 'Name:')}}
+                <h2>{{__('text.newCategory')}}</h2>  
+                {{Form::label('name', __('text.nameColon'))}}
                 {{Form::text('name',null, ['class' => 'form-control'])}}
 
-                {{Form::submit('Create New Category',['class' => 'btn btn-primary btn-block','style'=>'margin-top:10px;'])}}
+                {{Form::submit(__('text.createNewCategory'),['class' => 'btn btn-primary btn-block','style'=>'margin-top:10px;'])}}
                 {!!Form::close()!!}
             </div>
         </div>

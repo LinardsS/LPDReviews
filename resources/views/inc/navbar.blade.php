@@ -38,16 +38,16 @@
 
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                  <a class="nav-link" href="/">{{__('text.Home')}}<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/about">About</a>
+                  <a class="nav-link" href="/about">{{__('text.About')}}</a>
                 </li>
                 {{-- <li class="nav-item">
                     <a class="nav-link" href="/services">Services</a>
                 </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="/reviews">Reviews</a>
+                    <a class="nav-link" href="/reviews">{{__('text.Reviews')}}</a>
                 </li>
                 
 
@@ -75,12 +75,12 @@
 
                         
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                            <a class ="dropdown-item" href="/home">Dashboard</a>
-                            <a class ="dropdown-item" href="{{route('categories.index')}}">Categories</a>
+                            <a class ="dropdown-item" href="/home">{{__('text.dashboard')}}</a>
+                            <a class ="dropdown-item" href="{{route('categories.index')}}">{{__('text.categories')}}</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('text.logout') }}
                             </a>
                             
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
