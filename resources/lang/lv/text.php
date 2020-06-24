@@ -36,6 +36,8 @@ return [
     'back' => 'Atpakaļ',
     'body' => 'Teksts',
     'submit' => 'Publicēt',
+    'admin' => 'Administrators',
+    'adminPage' => 'Administratora lapa'
 ];
 
 

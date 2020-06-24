@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
+use App\User;
 class PagesController extends Controller
 {
     public function index(){
@@ -14,11 +15,9 @@ class PagesController extends Controller
         $title = 'About Us';
         return view('pages.about')->with('title',$title);
     }
-    // public function services() {
-    //     $data = array(
-    //         'title' => 'Services',
-    //         'services' => ['Web Design', 'Programming', 'SEO']
-    //     );
-    //     return view('pages.services')->with($data);
-    // }
+    public function admin() {
+        $title = __('text.adminPage');
+        $users = User::all();
+        return view('pages.admin')->with('users',$users)->with('title',$title);
+    }
 }

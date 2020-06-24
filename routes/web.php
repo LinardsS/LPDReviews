@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
  
     Route::get('/', 'PagesController@index');
     Route::get('/about', 'PagesController@about');
-    Route::get('/services', 'PagesController@services');
+    Route::get('/admin', 'PagesController@admin');
 
 
     Route::resource('reviews', 'ReviewsController');
@@ -31,6 +31,11 @@ use Illuminate\Support\Facades\Route;
     //Comments
     Route::post('comments/{review_id}', ['uses'=>'CommentsController@store', 'as'=>'comments.store']);
 
+    //Admin role
+    // Route::get('/admin', [
+    //   'middleware'=>'roles',
+    //   'roles' => ['Admin']
+    // ]);
     //Locales
     Route::get('setlocale/{locale}', function ($locale) {
         if (in_array($locale, \Config::get('app.locales'))) {

@@ -37,5 +37,7 @@ return [
     'back' => 'Back',
     'body' => 'Body',
     'submit' => 'Submit',
+    'admin' => 'Admin',
+    'adminPage' => 'Admin page'
 ];
 ?>
