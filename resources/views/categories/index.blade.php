@@ -23,6 +23,7 @@
             </table>
         </div>
 
+        @if(!Auth::guest() && Auth::user()->hasRole('admin'))
         <div class="col-md-3">
             <div class="card card-body bg-light">
                 {!!Form::open(['route' =>'categories.store', 'method' =>'POST'])!!}
@@ -34,6 +35,7 @@
                 {!!Form::close()!!}
             </div>
         </div>
+        @endif
     </div>
 
 @endsection

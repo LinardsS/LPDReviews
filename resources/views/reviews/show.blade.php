@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<br>
-<br>
+
     <a href="/reviews" class="btn btn-outline-primary">{{__('text.back')}}</a>
     <br>
     <br>
@@ -30,8 +29,8 @@
             <div class="col-md-8 col-md-offset">
                 @foreach($review->comments as $comment) 
                 <div class="comment">
-                <p><strong>Name:</strong> {!!$comment->name!!} <strong>Posted: </strong> {!!$comment->created_at->diffForHumans()!!}</p>
-                <p><strong>Comment:</strong> <br/>{!!$comment->comment!!}</p><br>
+                <p><strong>{{__('text.name')}}:</strong> {!!$comment->name!!} <strong>Posted: </strong> {!!$comment->created_at->diffForHumans()!!}</p>
+                <p><strong>{{__('text.comment')}}:</strong> <br/>{!!$comment->comment!!}</p><br>
                 </div>
 
                 @endforeach

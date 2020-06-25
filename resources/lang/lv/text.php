@@ -39,7 +39,9 @@ return [
     'admin' => 'Administrators',
     'adminPage' => 'Administratora lapa',
     'user' => 'Lietotājs',
-    'search' => 'Meklēt'
+    'search' => 'Meklēt',
+    'comment' => 'Komentārs',
+    'addComment' => 'Pievienot komentāru',
 ];
 
 

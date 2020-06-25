@@ -40,6 +40,8 @@ return [
     'admin' => 'Admin',
     'adminPage' => 'Admin page',
     'user' => 'User',
-    'search' => 'Search'
+    'search' => 'Search',
+    'addComment' => 'Add comment',
+    'comment' => 'Comment',
 ];
 ?>
