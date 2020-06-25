@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Events\UserCreatedEvent;
 
 class User extends Authenticatable
 {
@@ -19,6 +20,9 @@ class User extends Authenticatable
         'name', 'email', 'password',
     ];
 
+    protected $dispatchesEvents =[
+        'created' =>UserCreatedEvent::class,
+    ];
     /**
      * The attributes that should be hidden for arrays.
      *
