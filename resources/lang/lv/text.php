@@ -38,7 +38,8 @@ return [
     'submit' => 'Publicēt',
     'admin' => 'Administrators',
     'adminPage' => 'Administratora lapa',
-    'user' => 'Lietotājs'
+    'user' => 'Lietotājs',
+    'search' => 'Meklēt'
 ];
 
 

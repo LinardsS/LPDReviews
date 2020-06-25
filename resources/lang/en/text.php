@@ -39,6 +39,7 @@ return [
     'submit' => 'Submit',
     'admin' => 'Admin',
     'adminPage' => 'Admin page',
-    'user' => 'User'
+    'user' => 'User',
+    'search' => 'Search'
 ];
 ?>
